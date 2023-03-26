@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Praktika5_2
+{
+    interface Hello
+    {
+        void SayHello();
+    }
+    class Russian: Hello
+    {
+        public void SayHello()
+        {
+            Console.WriteLine("Привет");
+        }
+    }
+    class English: Hello
+    {
+        public void SayHello()
+        {
+            Console.WriteLine("Hello");
+        }
+    }
+    class Deutsch: Hello
+    {
+        public void SayHello()
+        {
+            Console.WriteLine("Hallo");
+        }
+    }
+    class Italian: Hello
+    {
+        public void SayHello()
+        {
+            Console.WriteLine("Ciao");
+        }
+    }
+    class Spanish: Hello
+    {
+        public void SayHello()
+        {
+            Console.WriteLine("Hola");
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<IHello> greetings = new List<IHello>();
+            greetings.Add(new Russian());
+            greetings.Add(new English());
+            greetings.Add(new Deutsch());
+            greetings.Add(new Italian());
+            greetings.Add(new Spanish());
+            foreach (IHello hello in greetings)
+            {
+                hello.SayHello();
+            }
+            Console.ReadKey(true);
+        }
+    }
+}
